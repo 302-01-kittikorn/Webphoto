@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เที่ยวเมืองไทย - Amazing Thailand Gallery</title>
+    <style>
+        /* --- ตั้งค่าพื้นฐาน --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* --- ส่วนหัว (Header) --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        /* --- ส่วนแกลเลอรีรูปภาพ (Gallery Section) --- */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* --- การ์ดสถานที่ท่องเที่ยว (Card) --- */
+        .gallery-item {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-info {
+            padding: 20px;
+        }
+
+        .gallery-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .gallery-info p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        /* --- ระบบคลิกดูรูปใหญ่ (Lightbox Popup) --- */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* --- ส่วนท้าย (Footer) --- */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Amazing Thailand</h1>
+        <p>บันทึกภาพความทรงจำและสถานที่ท่องเที่ยวสุดสวยทั่วประเทศไทย</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="gallery-grid">
+
+            <!-- การ์ดที่ 1: กรุงเทพฯ -->
+            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80')">
+                <img src="https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80" alt="วัดอรุณราชวราราม">
+                <div class="gallery-info">
+                    <h3>วัดอรุณราชวราราม, กรุงเทพฯ</h3>
+                    <p>ชมความงามของพระปรางค์วัดอรุณริมแม่น้ำเจ้าพระยาในยามเย็น</p>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 2: เชียงใหม่ (เปลี่ยนรูปเองได้เลย) -->
+            <div class="gallery-item" onclick="openLightbox('img/chiangmai.jpg')">
+                <img src="img/chiangmai.jpg" alt="ดอยอินทนนท์" onerror="this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=800&q=80'">
+                <div class="gallery-info">
+                    <h3>ดอยอินทนนท์, เชียงใหม่</h3>
+                    <p>สัมผัสลมหนาวและทะเลหมอกบนยอดเขาที่สูงที่สุดในประเทศไทย</p>
+                </div>
+            </div>
+
+            <!-- การ์ดที่ 3: ภูเก็ต (เปลี่ยนรูปเองได้เลย) -->
+            <div class="gallery-item" onclick="openLightbox('img/phuket.jpg')">
+                <img src="img/phuket.jpg" alt="ทะเลภูเก็ต" onerror="this.src='https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80'">
+                <div class="gallery-info">
+                    <h3>เกาะพีพี, กระบี่/ภูเก็ต</h3>
+                    <p>สวรรค์ของคนรักทะเล น้ำใสหาดทรายขาวระดับโลก</p>
+                </div>
+            </div>
+
+            <!-- คุณสามารถ Copy บล็อกด้านบนเพื่อเพิ่มสถานที่อื่นๆ ได้ตามต้องการ -->
+
+        </div>
+    </div>
+
+    <!-- Lightbox Popup Component -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="รูปขยายใหญ่">
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Thailand Travel Gallery. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script สำหรับเปิด-ปิดรูปใหญ่ -->
+    <script>
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
