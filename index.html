@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เที่ยวเมืองไทย - Amazing Thailand Gallery</title>
+    <title>สัตว์เลี้ยงและสัตว์โลกน่ารัก - My Favorite Animals</title>
     <style>
         /* --- ตั้งค่าพื้นฐาน --- */
         * {
@@ -20,7 +20,9 @@
 
         /* --- ส่วนหัว (Header) --- */
         header {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbWMP0CgdUJw5tyEViTrdxOclYnv7dNgU1qD2kdXmhggnvf262e-MIgnl3&s=10') no-repeat center center/cover;
+            /* คุณสามารถเปลี่ยนลิงก์รูปภาพตรง url('...') เป็นรูปภาพพื้นหลังธีมสัตว์ที่ชอบได้ */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('ใส่ลิงก์รูปภาพพื้นหลังส่วนหัวที่นี่') no-repeat center center/cover;
+            background-color: #2c3e50; /* สีสำรองกรณีไม่มีรูปภาพ */
             height: 40vh;
             display: flex;
             flex-direction: column;
@@ -55,7 +57,7 @@
             gap: 25px;
         }
 
-        /* --- การ์ดสถานที่ท่องเที่ยว (Card) --- */
+        /* --- การ์ดสัตว์เลี้ยง/สัตว์โลก (Card) --- */
         .gallery-item {
             background-color: #fff;
             border-radius: 12px;
@@ -144,65 +146,58 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header>
-        <h1>Amazing Thailand</h1>
-        <p>บันทึกภาพความทรงจำและสถานที่ท่องเที่ยวสุดสวยทั่วประเทศไทย</p>
+        <h1>My Favorite Animals</h1>
+        <p>รวมภาพและเรื่องราวของเหล่าน้องสัตว์สุดน่ารักที่ฉันชอบ</p>
     </header>
 
-    <!-- Main Content -->
     <div class="container">
         <div class="gallery-grid">
 
-            <!-- การ์ดที่ 1: กรุงเทพฯ -->
-            <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80')">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiRHQUCDMgkWmLqbNZsT5L3oXoGbNMGnzeGI_pfs8iBw&s=10">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="ใส่ลิงก์รูปภาพสัตว์ตัวที่ 1 ที่นี่" alt="สุนัข">
                 <div class="gallery-info">
-                    <h3>เชียงราย</h3>
-                    <p>ชมความงาม</p>
+                    <h3>น้องหมา (Dog)</h3>
+                    <p>เพื่อนแท้สี่ขาที่มีความซื่อสัตย์ ขี้อ้อน และคอยสร้างรอยยิ้มให้เราได้เสมอในทุกๆ วัน</p>
                 </div>
             </div>
 
-            <!-- การ์ดที่ 2: เชียงใหม่ (เปลี่ยนรูปเองได้เลย) -->
-            <div class="gallery-item" onclick="openLightbox('img/chiangmai.jpg')">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmoa-v45yXPeogY0jkRL7EI3ayiQpERBqqu3SJ-c_uyQ&s=10">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="ใส่ลิงก์รูปภาพสัตว์ตัวที่ 2 ที่นี่" alt="แมว">
                 <div class="gallery-info">
-                    <h3>น้ำตกพาเจริญ, ตาก</h3>
-                    <p>สัมผัสลมหนาวและชื่นใจในประเทศไทย</p>
+                    <h3>น้องแมว (Cat)</h3>
+                    <p>สิ่งมีชีวิตที่คิดจะครองโลก มีความอินดี้ บทจะอ้อนก็น่ารักจนใจเจ็บ บทจะนิ่งก็นิ่งจนเดาใจไม่ถูก</p>
                 </div>
             </div>
 
-            <!-- การ์ดที่ 3: ภูเก็ต (เปลี่ยนรูปเองได้เลย) -->
-            <div class="gallery-item" onclick="openLightbox('img/phuket.jpg')">
-                <img src="https://www.wonderfulpackage.com/uploads/moxie/Article/thai/kanjanaburi-trip/kanjanaburi1.jpg">
+            <div class="gallery-item" onclick="openLightbox(this)">
+                <img src="ใส่ลิงก์รูปภาพสัตว์ตัวที่ 3 ที่นี่" alt="คาปิบาร่า">
                 <div class="gallery-info">
-                    <h3>น้ำตกเอราวัญ,กาณจนบุรี</h3>
-                    <p>สวรรค์ของคนรักน้ำตก</p>
+                    <h3>คาปิบาร่า (Capybara)</h3>
+                    <p>พี่ใหญ่ผู้เป็นมิตรกับสิ่งมีชีวิตทุกชนิดบนโลก เจ้าของฉายาหมาน้ำผู้นิ่งเฉยและรักสงบ</p>
                 </div>
             </div>
 
-            <!-- คุณสามารถ Copy บล็อกด้านบนเพื่อเพิ่มสถานที่อื่นๆ ได้ตามต้องการ -->
-
-        </div>
+            </div>
     </div>
 
-    <!-- Lightbox Popup Component -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="close-btn">&times;</span>
-        <img id="lightbox-img" src="" alt="รูปขยายใหญ่">
+        <img id="lightbox-img" src="" alt="รูปสัตว์ขยายใหญ่">
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Thailand Travel Gallery. All Rights Reserved.</p>
+        <p>&copy; 2026 My Favorite Animals Gallery. All Rights Reserved.</p>
     </footer>
 
-    <!-- Script สำหรับเปิด-ปิดรูปใหญ่ -->
     <script>
-        function openLightbox(imageSrc) {
+        function openLightbox(element) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
-            lightboxImg.src = imageSrc;
+            // ดึงลิงก์รูปภาพจากแท็ก img ที่อยู่ภายในการ์ดที่ถูกคลิก
+            const imgClicked = element.querySelector('img').src;
+            
+            lightboxImg.src = imgClicked;
             lightbox.classList.add('active');
         }
 
